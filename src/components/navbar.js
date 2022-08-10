@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
+import cat from './cat.svg';
 
 const Navbar = () => (
   <ul>
     <NavLink to="/">
       <li>
-        item 1
+        <img className="icon" src={cat}></img>
       </li>
     </NavLink>
     <NavLink to="details">

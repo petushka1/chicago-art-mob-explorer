@@ -1,0 +1,13 @@
+.filtered {
+    background: #a265f7;
+}
+ .filtered img {
+   -webkit-filter: grayscale(100%);
+   filter: grayscale(100%);
+   opacity: 0.5;
+ }
+
+ .thumbnail {
+    width: 2332px;
+    height: auto;
+ }
