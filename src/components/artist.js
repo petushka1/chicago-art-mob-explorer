@@ -1,13 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Artwork from './artwork';
 
 const Artist = (props) => {
   // const [artworks, setArtworks] = useState([]);
   const [state, setState] = useState({ isOpen: false });
   const [artworks, setArtworks] = useState([]);
-  const {
-    artistId, name, birth_date, death_date, birth_place, artwork_ids,
-  } = props;
+  const { artistId, name, birth_date, death_date, birth_place, artwork_ids } = props;
 
   const showArtworks = () => setState({ isOpen: !state.isOpen });
 
@@ -33,8 +31,7 @@ const Artist = (props) => {
       </div>
       <button type="button" onClick={showArtworks}>Artworks</button>
       <div>
-        {state.isOpen
-          ? (
+        {state.isOpen ? (
             <div>
               {artworks ? artworks.filter((item) => artistId == item.artist_id).map((item) => (
                 <Artwork

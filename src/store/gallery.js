@@ -6,7 +6,7 @@ const artworks = 'artworks';
 const exhibitions = 'exhibitions';
 // search request by default cats
 const search = 'https://api.artic.edu/api/v1/artworks/search?q=cats';
-const LIMIT = 80;
+const LIMIT = 100;
 
 export const fetchArtworks = createAsyncThunk(
   'gallery/fetchArtworks',
@@ -17,7 +17,7 @@ export const fetchArtworks = createAsyncThunk(
 
 export const fetchExhibitions = createAsyncThunk(
   'gallery/fetchExhibitions',
-  (page = 1) => fetch(`${baseURL}${exhibitions}?page=${page}&limit=${LIMIT}`)
+  (page) => fetch(`${baseURL}${exhibitions}?page=${page}&limit=${LIMIT}`)
     .then((res) => res.json())
     .then((data) => data),
 );

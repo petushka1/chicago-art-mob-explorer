@@ -6,13 +6,6 @@ const Exhibions = () => {
 
   return (
     <section>
-      <button type="button">
-        Next
-      </button>
-      <div>
-        <p>Total:</p>
-        <p>{total}</p>
-      </div>
       {exhibitions ? exhibitions.map((item) => (
         <Exhibition
           key={item.id}

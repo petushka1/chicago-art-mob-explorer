@@ -1,17 +1,20 @@
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import cat from './cat.svg';
 import Navbar from './navbar';
-import logo from './ligi.svg';
 
 const Header = () => {
   const [exhibitions, total] = useSelector((state) => state.gallery);
   return (
     <header>
       <div>
-        <img src={logo} />
+      <NavLink to="/">
+        <img className="icon" src={cat} />
+        </NavLink>
       </div>
-      <button type="button">
-        Next
-      </button>
+      <div>
+        <span>Art</span><span>Institute</span><span>Chicago</span>
+      </div>
       <div>
         <p>Total:</p>
         <p>{total}</p>

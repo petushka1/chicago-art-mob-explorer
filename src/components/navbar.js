@@ -1,19 +1,33 @@
-import { NavLink } from 'react-router-dom';
-import cat from './cat.svg';
+import { useDispatch } from 'react-redux';
+import { fetchExhibitions } from '../store/gallery';
 
-const Navbar = () => (
+const Navbar = () => {
+  const dispatch = useDispatch();
+  let page = 1;
+
+  const handleNextPage = () => {
+    page+=1;
+    dispatch(fetchExhibitions(page))
+  }
+
+  const handlePrevPage = () => {
+    if (page > 0) {
+    page-=1;
+    dispatch(fetchExhibitions(page))
+  } else {
+    return
+  }
+  }
+
+  return (
   <ul>
-    <NavLink to="/">
-      <li>
-        <img className="icon" src={cat} />
+         <li onClick={handleNextPage}>
+        next
       </li>
-    </NavLink>
-    <NavLink to="details">
-      <li>
-        item 1
+         <li onClick={handlePrevPage}>
+        previous
       </li>
-    </NavLink>
   </ul>
-);
+);}
 
 export default Navbar;
