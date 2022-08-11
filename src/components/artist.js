@@ -5,7 +5,9 @@ const Artist = (props) => {
   // const [artworks, setArtworks] = useState([]);
   const [state, setState] = useState({ isOpen: false });
   const [artworks, setArtworks] = useState([]);
-  const { artistId, name, birth_date, death_date, birth_place, artwork_ids } = props;
+  const {
+    artistId, name, birth_date, death_date, birth_place, artwork_ids,
+  } = props;
 
   const showArtworks = () => setState({ isOpen: !state.isOpen });
 
@@ -32,30 +34,30 @@ const Artist = (props) => {
       <button type="button" onClick={showArtworks}>Artworks</button>
       <div>
         {state.isOpen ? (
-            <div>
-              {artworks ? artworks.filter((item) => artistId == item.artist_id).map((item) => (
-                <Artwork
-                  key={item.id}
-                  id={item.id}
-                  image_id={item.image_id}
-                  artist_id={item.artist_id}
-                  category_ids={item.category_ids}
-                  artwork_type_id={item.artwork_type_id}
-                  category_titles={item.category_titles}
-                  title={item.title}
-                  artist_title={item.artist_title}
-                  date_start={item.date_start}
-                  date_end={item.date_end}
-                  place_of_origin={item.place_of_origin}
-                  artwork_type_title={item.artwork_type_title}
-                  technique_titles={item.technique_titles}
-                  material_titles={item.material_titles}
-                  medium_display={item.medium_display}
-                  thumbnail={item.thumbnail}
-                />
-              )) : ''}
-            </div>
-          )
+          <div>
+            {artworks ? artworks.filter((item) => artistId == item.artist_id).map((item) => (
+              <Artwork
+                key={item.id}
+                id={item.id}
+                image_id={item.image_id}
+                artist_id={item.artist_id}
+                category_ids={item.category_ids}
+                artwork_type_id={item.artwork_type_id}
+                category_titles={item.category_titles}
+                title={item.title}
+                artist_title={item.artist_title}
+                date_start={item.date_start}
+                date_end={item.date_end}
+                place_of_origin={item.place_of_origin}
+                artwork_type_title={item.artwork_type_title}
+                technique_titles={item.technique_titles}
+                material_titles={item.material_titles}
+                medium_display={item.medium_display}
+                thumbnail={item.thumbnail}
+              />
+            )) : ''}
+          </div>
+        )
           : ''}
       </div>
     </div>

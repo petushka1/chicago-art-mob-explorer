@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import styles from './navbar.module.css';
 import { fetchExhibitions } from '../store/gallery';
 
 const Navbar = () => {
@@ -6,28 +7,30 @@ const Navbar = () => {
   let page = 1;
 
   const handleNextPage = () => {
-    page+=1;
-    dispatch(fetchExhibitions(page))
-  }
+    page += 1;
+    dispatch(fetchExhibitions(page));
+  };
 
   const handlePrevPage = () => {
     if (page > 0) {
-    page-=1;
-    dispatch(fetchExhibitions(page))
-  } else {
-    return
-  }
-  }
+      page -= 1;
+      dispatch(fetchExhibitions(page));
+    } else {
+
+    }
+  };
 
   return (
-  <ul>
-         <li onClick={handleNextPage}>
-        next
-      </li>
-         <li onClick={handlePrevPage}>
+    <ul className={styles.nav}>
+      <li onClick={handlePrevPage}>
         previous
       </li>
-  </ul>
-);}
+      <li onClick={handleNextPage}>
+        next
+      </li>
+
+    </ul>
+  );
+};
 
 export default Navbar;

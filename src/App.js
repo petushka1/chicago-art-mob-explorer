@@ -7,7 +7,6 @@ import { fetchExhibitions } from './store/gallery';
 import Header from './components/header';
 import Details from './components/details';
 import Home from './components/home';
-import Artworks from './components/artworks';
 
 function App() {
   const dispatch = useDispatch();
@@ -17,7 +16,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/details/id=:id" element={<Details />} />

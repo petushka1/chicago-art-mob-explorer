@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import styles from './details.module.css'
 import Artist from './artist';
 
 const Details = () => {
@@ -30,7 +31,7 @@ const Details = () => {
   return (
     <main>
       <section>
-        <div>
+        <div className={styles.exhibition}>
           <h3>{title}</h3>
           <p>{description}</p>
           <p>{status}</p>

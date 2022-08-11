@@ -1,19 +1,20 @@
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux/es/exports';
+import styles from './exhibition.module.css';
 
 // import { fetchArtists } from '../store/gallery';
 
 const Exhibition = (props) => {
   const {
-    id, title, image_url, status, artwork_ids, department_display, artist_ids,
+    id, title, image_url, status, artwork_ids, department_display, artist_ids, short_description
   } = props;
 
   return (
     <NavLink to={`/details/id=${id}`}>
-      <div style={{ backgroundImage: `url(${image_url})` }}>
-        <h3>{title}</h3>
-        <p>{department_display}</p>
-        <p>{status}</p>
+      <div className={styles.exhibition} style={{ backgroundImage: `url(${image_url})` }}>
+        <div className={styles.textWrapper}>
+          <h3 className={styles.name}>{title}</h3>
+          <p className={styles.status}>{status}</p>
+        </div>
       </div>
     </NavLink>
   );

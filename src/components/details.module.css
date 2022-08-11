@@ -1,0 +1,6 @@
+.exhibition {
+    background: rgb(181,9,56);
+    background: linear-gradient(0deg, rgba(181,9,56,1) 0%, rgba(98,95,146,0.5181072673209909) 100%);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 6px;
+}
