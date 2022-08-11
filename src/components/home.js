@@ -1,13 +1,9 @@
-import { useSelector } from "react-redux/es/exports";
-import Exhibions from "./exhibitions";
+import Exhibions from './exhibitions';
 
-const Home = () => {
-    return (
-<section>
+const Home = () => (
+  <section>
     <Exhibions />
-</section>
-)
-
-}
+  </section>
+);
 
 export default Home;

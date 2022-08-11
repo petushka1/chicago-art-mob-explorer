@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-//import { useEffect } from 'react';
-//import { fetchArtworks } from '../store/gallery';
-import Artwork from './artwork';
+// import { useEffect } from 'react';
+// import { fetchArtworks } from '../store/gallery';
 
 const Artworks = () => {
   const artworks = useSelector((state) => state.gallery);

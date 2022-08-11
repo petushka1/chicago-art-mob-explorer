@@ -5,7 +5,7 @@ const Navbar = () => (
   <ul>
     <NavLink to="/">
       <li>
-        <img className="icon" src={cat}></img>
+        <img className="icon" src={cat} />
       </li>
     </NavLink>
     <NavLink to="details">

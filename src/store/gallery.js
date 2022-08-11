@@ -6,32 +6,25 @@ const artworks = 'artworks';
 const exhibitions = 'exhibitions';
 // search request by default cats
 const search = 'https://api.artic.edu/api/v1/artworks/search?q=cats';
-const LIMIT = 8;
+const LIMIT = 80;
 
-const fetchArtworks = createAsyncThunk(
+export const fetchArtworks = createAsyncThunk(
   'gallery/fetchArtworks',
   (page = 1) => fetch(`${baseURL}${artworks}?page=${page}&limit=${LIMIT}`)
     .then((res) => res.json())
     .then((data) => data),
 );
 
-const fetchArtists = createAsyncThunk(
-  'gallery/fetchArtists',
-  (page = 1) => fetch(`${baseURL}${artists}?page=${page}&limit=${LIMIT}`)
+export const fetchExhibitions = createAsyncThunk(
+  'gallery/fetchExhibitions',
+  (page = 1) => fetch(`${baseURL}${exhibitions}?page=${page}&limit=${LIMIT}`)
     .then((res) => res.json())
     .then((data) => data),
 );
 
-const fetchExhibitions = createAsyncThunk(
-    'gallery/fetchExhibitions',
-    (page = 1) => fetch(`${baseURL}${exhibitions}?page=${page}&limit=${LIMIT}`)
-      .then((res) => res.json())
-      .then((data) => data),
-  );
-
 const gallerySlice = createSlice({
   name: 'gallery',
-  initialState: [],
+  initialState: [[], 0],
   reducers: {
 
   },
@@ -42,62 +35,45 @@ const gallerySlice = createSlice({
       console.log(data);
       const newState = data.map((item) => (
         {
-        id: item.id,
-        image_id: item.image_id,
-        artist_id: item.artist_id,
-        category_ids: item.category_ids,
-        artwork_type_id: item.artwork_type_id,
-        category_titles: item.category_titles,
-        title: item.title,
-        artist_title: item.artist_title,
-        date_start: item.date_start,
-        date_end: item.date_end,
-        place_of_origin: item.place_of_origin,
-        artwork_type_title: item.artwork_type_title,
-        technique_titles: item.technique_titles,
-        material_titles: item.material_titles,
-        medium_display: item.medium_display,
-        thumbnail: item.thumbnail.lqip,
-      }));
-      return newState
-    },
-    
-    [fetchArtists.fulfilled]: (state, { payload }) => {
-      const { data } = payload;
-      const newState = data.map(() => ({
-        id: item.id,
-        title: item.title,
-        artwork_ids: item.artwork_ids,
-        birth_place:item.birth_place,
-        birth_date: item.birth_date,
-        death_birth: death_birth,
-      }));kk
-      console.log(newState);
-      return newState
+          id: item.id,
+          image_id: item.image_id,
+          artist_id: item.artist_id,
+          category_ids: item.category_ids,
+          artwork_type_id: item.artwork_type_id,
+          category_titles: item.category_titles,
+          title: item.title,
+          artist_title: item.artist_title,
+          date_start: item.date_start,
+          date_end: item.date_end,
+          place_of_origin: item.place_of_origin,
+          artwork_type_title: item.artwork_type_title,
+          technique_titles: item.technique_titles,
+          material_titles: item.material_titles,
+          medium_display: item.medium_display,
+          thumbnail: item.thumbnail.lqip,
+        }));
+      return newState;
     },
 
     [fetchExhibitions.fulfilled]: (state, { payload }) => {
-        const { data, pagination } = payload;
-        const newState = data.map(() => ({
-          id: item.id,
-          title: item.title,
-          image_url: item.image_url,
-          status: item.status,
-          artwork_ids: item.artwork_ids,
-          department_display: item.department_display,
-          artist_ids: item.artist_ids,
-        }));
-        console.log(newState);
-        return {
-          ...newState,
-        total: pagination.total,
-      }
-      },
-  
+      const { data, pagination } = payload;
+      const newState = data.filter((item) => item.artist_ids.length > 0).map((item) => ({
+        id: item.id,
+        title: item.title,
+        image_url: item.image_url,
+        status: item.status,
+        artwork_ids: item.artwork_ids,
+        department_display: item.department_display,
+        artist_ids: item.artist_ids,
+      }));
+      console.log(newState);
+      const { total } = pagination;
+      return [newState, total];
+    },
+
   },
 });
 
-export { fetchArtworks, fetchExhibitions, fetchArtists };
 export const galleryReduser = gallerySlice.actions;
 export default gallerySlice.reducer;
 
@@ -130,7 +106,6 @@ export default gallerySlice.reducer;
                 api_link: item.api_link,
 
 */
-
 
 /*
 
@@ -207,9 +182,6 @@ export default gallerySlice.reducer;
             "last_updated": "2022-08-09T23:10:52-05:00",
             "timestamp": "2022-08-10T03:29:45-05:00"
         },
-
-
-
 
         "id": 998,
             "api_model": "exhibitions",

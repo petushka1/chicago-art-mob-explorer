@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchArtworks, fetchArtists, fetchExhibitions } from './store/gallery';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import { fetchExhibitions } from './store/gallery';
 import Header from './components/header';
 import Details from './components/details';
 import Home from './components/home';
@@ -12,9 +12,7 @@ import Artworks from './components/artworks';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchArtworks());
     dispatch(fetchExhibitions());
-    dispatch(fetchArtists());
   }, [dispatch]);
 
   return (
@@ -22,7 +20,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/details" element={<Details />} />
+        <Route path="/details/id=:id" element={<Details />} />
       </Routes>
     </BrowserRouter>
   );
