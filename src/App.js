@@ -4,7 +4,6 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { fetchExhibitions } from './store/gallery';
-import Header from './components/header';
 import Details from './components/details';
 import Home from './components/home';
 

@@ -1,29 +1,24 @@
 .wrapper {
-    background: #fff;
-    width: 100%;
-    z-index: 2;
-    position: fixed;
-    left: 0;
-    top: 0;
+  background: #fff;
+  width: 100%;
+  z-index: 2;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
-.exhibition {
-    background: rgb(181,9,56);
-    background: linear-gradient(0deg, rgba(181,9,56,1) 0%, rgba(98,95,146,0.5181072673209909) 100%);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 6px;
-    padding: 10px;
-    margin: 5px;
-  
 
+.exhibition {
+  background: rgb(181, 9, 56);
+  background: linear-gradient(0deg, rgba(181, 9, 56, 1) 0%, rgba(98, 95, 146, 0.5181072673209909) 100%);
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 5px;
 }
 
 .list {
-
-    left: 0;
-    top: 0;
-    margin: 200px 10px 0 10px;
-    padding: 0;
-   
-    
+  left: 0;
+  top: 0;
+  margin: 200px 10px 0 10px;
+  padding: 0;
 }
-

@@ -1,30 +1,20 @@
 .exhibition {
-
-  
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
-    text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
 }
 
 .textWrapper {
-    padding: 5px;
-    background: rgba(181,9,56, 0.7);
-align-self: stretch;
-padding-top: 5px;
-}
-
-.name {
-
+  padding: 5px;
+  background: rgba(181, 9, 56, 0.7);
+  align-self: stretch;
+  padding-top: 5px;
 }
 
 .status {
-    background: rgba(255,255,255,0.1);
-    margin-top: 0;
-    padding: 5px;
-    border-radius: 6px;
-}
-
-.department {
-
+  background: rgba(255, 255, 255, 0.1);
+  margin-top: 0;
+  padding: 5px;
+  border-radius: 6px;
 }

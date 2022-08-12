@@ -1,11 +1,14 @@
+/* eslint-disable camelcase */
+
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styles from './exhibition.module.css';
 
 // import { fetchArtists } from '../store/gallery';
 
 const Exhibition = (props) => {
   const {
-    id, title, image_url, status, artwork_ids, department_display, artist_ids, short_description
+    id, title, image_url, status,
   } = props;
 
   return (
@@ -18,6 +21,20 @@ const Exhibition = (props) => {
       </div>
     </NavLink>
   );
+};
+
+Exhibition.defaultProps = {
+  id: '',
+  title: 'Unknown',
+  image_url: null,
+  status: 'Unconfirmed',
+};
+
+Exhibition.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  image_url: PropTypes.string,
+  status: PropTypes.string,
 };
 
 export default Exhibition;

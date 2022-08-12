@@ -1,45 +1,38 @@
+/* eslint-disable camelcase */
+
+import PropTypes from 'prop-types';
 import styles from './artwork.module.css';
 
 const Artwork = (props) => {
   const {
-    id, title, artist_title, date_start, date_end, artwork_type_title, image_id,
+    title, date_start, date_end, image_id,
   } = props;
   return (
     <div className={styles.cover}>
-    <div className={styles.artwork} style={{ backgroundImage: `url(https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg)` }}>
-   
-      </div>
+      <div className={styles.artwork} style={{ backgroundImage: `url(https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg)` }} />
       <div className={styles.content}>
-      <h3>
+        <h3>
           {title}
         </h3>
         <p>{`${date_start} - ${date_end}`}</p>
       </div>
- 
+
     </div>
   );
 };
 
+Artwork.defaultProps = {
+  image_id: null,
+  title: 'Unknown',
+  date_start: null,
+  date_end: null,
+};
+
+Artwork.propTypes = {
+  image_id: PropTypes.string,
+  title: PropTypes.string,
+  date_start: PropTypes.number,
+  date_end: PropTypes.number,
+};
+
 export default Artwork;
-
-/*
-
- key
-        id
-        image_id
-        artist_id
-        category_ids
-        artwork_type_id
-        category_titles
-        title
-        artist_title
-        date_start
-        date_end
-        place_of_origin
-        artwork_type_title
-        technique_titles
-        material_titles
-        medium_display
-        thumbnail
-
-*/

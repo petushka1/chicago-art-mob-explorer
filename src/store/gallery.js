@@ -1,11 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const baseURL = 'https://api.artic.edu/api/v1/';
-const artists = 'artists';
 const artworks = 'artworks';
 const exhibitions = 'exhibitions';
-// search request by default cats
-const search = 'https://api.artic.edu/api/v1/artworks/search?q=cats';
 const LIMIT = 100;
 
 export const fetchArtworks = createAsyncThunk(
@@ -32,7 +29,6 @@ const gallerySlice = createSlice({
   extraReducers: {
     [fetchArtworks.fulfilled]: (state, { payload }) => {
       const { data } = payload;
-      console.log(data);
       const newState = data.map((item) => (
         {
           id: item.id,
@@ -66,7 +62,6 @@ const gallerySlice = createSlice({
         department_display: item.department_display,
         artist_ids: item.artist_ids,
       }));
-      console.log(newState);
       const { total } = pagination;
       return [newState, total];
     },
