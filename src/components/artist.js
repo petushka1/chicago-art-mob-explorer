@@ -13,9 +13,10 @@ const Artist = (props) => {
   const showArtworks = () => setState({ isOpen: !state.isOpen });
 
   useEffect(() => {
-    if ( artwork_ids.length > 0) {
+    if (artwork_ids.length > 0) {
+    const artwork = artwork_ids.filter((artwork) => artwork_ids.indexOf(artwork) < 10)
     const fetchArtworks = async () => {
-      const responce = await fetch(`https://api.artic.edu/api/v1/artworks?ids=${artwork_ids}`);
+      const responce = await fetch(`https://api.artic.edu/api/v1/artworks?ids=${artwork}`);
       const { data } = await responce.json();
       console.log(data);
       setArtworks(data);

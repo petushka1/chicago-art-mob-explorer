@@ -1,11 +1,11 @@
-import Exhibions from './exhibitions';
+import Exhibitions from './exhibitions';
 import Header from './header';
 
 const Home = () => (
 
   <section>
     <Header />
-    <Exhibions />
+    <Exhibitions />
   </section>
 );
 

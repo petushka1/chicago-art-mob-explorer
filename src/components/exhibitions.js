@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux/es/exports';
 import Exhibition from './exhibition';
 import styles from './exhibitions.module.css';
 
-const Exhibions = () => {
+const Exhibitions = () => {
   const [exhibitions, total] = useSelector((state) => state.gallery);
 
   return (
@@ -27,4 +27,4 @@ const Exhibions = () => {
   );
 };
 
-export default Exhibions;
+export default Exhibitions;
