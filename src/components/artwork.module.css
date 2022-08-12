@@ -1,0 +1,25 @@
+.cover {
+  background: rgba(181, 9, 56, 1);
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.artwork {
+  opacity: 0.5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.artwork h3 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.content {
+  position: relative;
+  color: #fff;
+}

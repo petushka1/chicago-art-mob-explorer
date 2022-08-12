@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Artwork 1`] = `
+<h3>
+  Unknown
+</h3>
+`;
+
+exports[`renders Artwork 2`] = `
+<h3>
+  Unknown
+</h3>
+`;
