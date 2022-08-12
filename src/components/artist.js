@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import styles from './artist.module.css';
 import Artwork from './artwork';
 
 const Artist = (props) => {
@@ -12,6 +13,7 @@ const Artist = (props) => {
   const showArtworks = () => setState({ isOpen: !state.isOpen });
 
   useEffect(() => {
+    if ( artwork_ids.length > 0) {
     const fetchArtworks = async () => {
       const responce = await fetch(`https://api.artic.edu/api/v1/artworks?ids=${artwork_ids}`);
       const { data } = await responce.json();
@@ -20,21 +22,20 @@ const Artist = (props) => {
     };
     fetchArtworks().catch(null);
     return () => [];
-  });
+  }
+  }, []);
 
   return (
     <div>
-      <div>
+      <div className={styles.artist}>
         <h3>{name}</h3>
         <div>
           {`${birth_date} - ${death_date}`}
         </div>
         {birth_place === null ? '' : <span>{birth_place}</span>}
-      </div>
-      <button type="button" onClick={showArtworks}>Artworks</button>
-      <div>
+        <div>
         {state.isOpen ? (
-          <div>
+          <div className={artworks ? styles.list : styles.empty}>
             {artworks ? artworks.filter((item) => artistId == item.artist_id).map((item) => (
               <Artwork
                 key={item.id}
@@ -55,10 +56,12 @@ const Artist = (props) => {
                 medium_display={item.medium_display}
                 thumbnail={item.thumbnail}
               />
-            )) : ''}
+            )) : <div className={styles.none}>No artworks added yet</div>}
           </div>
         )
           : ''}
+      </div>
+        <button className={state.isOpen ? styles.close : styles.btn} type="button" onClick={showArtworks}>{state.isOpen ? "Close" : "Artworks"}</button>
       </div>
     </div>
   );

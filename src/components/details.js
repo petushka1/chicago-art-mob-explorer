@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './details.module.css'
 import Artist from './artist';
+import cat from './cat.svg'
 
 const Details = () => {
   const [artists, setArtists] = useState([]);
@@ -14,7 +15,7 @@ const Details = () => {
   const exhibition = gallery.find(({ id: exhibitionId }) => id == exhibitionId);
 
   const {
-    artist_ids, artworks_ids, title, status, description,
+    artist_ids, artwork_ids, title, status, description,
   } = exhibition;
 
   useEffect(() => {
@@ -30,14 +31,20 @@ const Details = () => {
 
   return (
     <main>
-      <section>
+      <section className={styles.section}>
+        <div className={styles.wrapper}>
         <div className={styles.exhibition}>
+        <div className={styles.home}>
+          <NavLink to="/">
+            <img className="icon" src={cat} />
+          </NavLink>
+        </div>
           <h3>{title}</h3>
           <p>{description}</p>
           <p>{status}</p>
         </div>
-        <div>
-          <ul>
+        </div>
+          <ul className={styles.list}>
 
             {artists ? artists.map((artist) => (
               <Artist
@@ -53,7 +60,7 @@ const Details = () => {
             )) : 'No artists to display'}
 
           </ul>
-        </div>
+      
       </section>
     </main>
   );

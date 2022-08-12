@@ -22,10 +22,7 @@ const Header = () => {
           </div>
           <div className={styles.title}>
             <h1 className={styles.titleText}>Exhibitions</h1>
-            <p className={styles.total}>
-              Total:
-              {total}
-            </p>
+            <p className={styles.total}>Total: {total}</p>
           </div>
         </div>
       </div>

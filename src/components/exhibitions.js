@@ -9,6 +9,7 @@ const Exhibions = () => {
     <section className={styles.wrapper}>
       {exhibitions ? exhibitions.map((item) => (
         <Exhibition
+        className={styles.exhibition}
           key={item.id}
           id={item.id}
           title={item.title}
