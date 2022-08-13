@@ -3,6 +3,8 @@ A web application built on top of [Art Institute of Chicago API](https://api.art
 Filtering and mapping by ids, max amount and other was implemented on background optimize UX.
 Custom design by author.
 
+## [Live Demo](https://deploy-preview-2--darling-moxie-0f9a2b.netlify.app/)
+
 ## Built With
 - React
 - Redux
